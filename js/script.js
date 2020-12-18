@@ -1,9 +1,9 @@
 {
     'use strict';
     /* document.getElementById('test-button').addEventListener('click', function () {
-        const links = document.querySelectorAll('.titles a');
-        console.log('links:', links);
-    }); */
+                    const links = document.querySelectorAll('.titles a');
+                    console.log('links:', links);
+                }); */
     const titleClickHandler = function (event) {
         event.preventDefault();
         const clickedElement = this;
@@ -31,13 +31,13 @@
         const currentArticle = document.querySelector(href);
         /* add class 'active' to the correct article */
         currentArticle.classList.add('active');
-    }
+    };
 
     const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles';
 
-    function generateTitleLinks() {
+    const generateTitleLinks = function () {
 
         /* remove contents of titleList */
         const titleList = document.querySelector(optTitleListSelector);
@@ -53,7 +53,7 @@
             article.querySelector(optArticleSelector);
             /* get the article id */
             const articleId = article.getAttribute('id');
-            console.log(`articleId = ${articleId}`)
+            console.log(`articleId = ${articleId}`);
             /* find and get the title from the title element */
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;
             /* create HTML of the link */
@@ -63,17 +63,17 @@
             //console.log(titleList)
             /* insert link into html variable */
             html = html + linkHTML;
-            console.log(html)
+            console.log(html);
 
         }
         titleList.innerHTML = html;
         const links = document.querySelectorAll('.titles a');
-        console.log(links)
+        console.log(links);
         for (let link of links) {
             link.addEventListener('click', titleClickHandler);
 
         }
-    }
+    };
 
     generateTitleLinks();
 
